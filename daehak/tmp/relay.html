@@ -1,7 +1,0 @@
-<!doctype html><meta charset="utf-8"><title>relay</title><body>relay<script>
-addEventListener('message',async e=>{if(e.origin!=='https://appstoreconnect.apple.com')return;const {file,type,urls}=e.data;
-const b=await (await fetch(file,{cache:'no-store'})).arrayBuffer();const st=[];
-for(const u of urls){try{const r=await fetch(u,{method:'PUT',headers:{'Content-Type':type},body:b});st.push(r.status)}catch(x){st.push('ERR')}}
-e.source.postMessage({done:true,st,len:b.byteLength},e.origin)});
-if(window.opener)window.opener.postMessage({ready:true},'https://appstoreconnect.apple.com');
-</script>
